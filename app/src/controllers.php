@@ -15,15 +15,15 @@ $app->get('/', function () use ($app) {
 ;
 
 $app->get('/status', function () use ($app) {
-    return '{done: true}'
+    return '{done: true}';
 });
 
 $app->get('/queue', function () use ($app) {
-    return '{done: true}'
+    return '{done: true}';
 });
 
 $app->get('/process', function () use ($app) {
-    return '{done: true}'
+    return '{done: true}';
 });
 
 
