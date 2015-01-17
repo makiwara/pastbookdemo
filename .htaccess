@@ -1,6 +1,7 @@
 RewriteEngine On 
 DirectoryIndex index.php
 RewriteBase /
+RewriteRule ^(.*/[^\./]*[^/])$ $1/
 RewriteCond %{REQUEST_FILENAME} !-f 
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteRule ^(.*)$ app/web/index.php [QSA,L]
