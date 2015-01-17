@@ -3,4 +3,4 @@ DirectoryIndex index.php
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f 
 RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteRule ^(.*)$ /app/web/index.php [QSA,L]
+RewriteRule ^(.*)$ app/web/index.php [QSA,L]
