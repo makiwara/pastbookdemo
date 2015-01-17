@@ -1,0 +1,412 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html { height: 100% }
+body {
+    height: 100%;
+    background-image: url(/home/img/bg.jpg);
+    background-size: hover;
+    background-attachment: fixed;
+}
+div, h1, h2, h3 { 
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+}
+.b-main-logo {
+    width: 191px; height: 39px;
+    display: block;
+    margin-top: 35px;
+}
+.b-main {}
+.b-main h1 {
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 27px;
+    font-weight: normal;
+    padding: 0;
+    margin: 35px 0 20px;
+}
+.b-main h2 {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 28px;
+}
+.b-main-button-container {
+    max-width: 360px;
+    padding-bottom: 50px;
+}
+.b-main-button {
+    background: rgba(140,185,57,0.8);
+    text-shadow: 1px 1px #0c1a01;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    padding: 18px 0px;
+    display: block;
+    margin-bottom: 10px
+}
+.b-main-button:hover {
+    background:rgba(124,176,43,0.9);
+}
+.b-main-iphone {
+    border-radius: 10px;
+    background: rgba(255,255,255,0.26);
+    color: #222222;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding: 10px 0px;
+    display: block;
+}
+.b-main-iphone:hover { 
+    background: rgba(255,255,255,0.6);
+    color: #000000;
+}
+.b-more {
+    padding: 20px 0;
+    background: #ffffff;
+}
+.b-more div { 
+    font-size: 14px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+.b-more a:link,
+.b-more a:visited { 
+    color: #0000ff;
+    text-decoration: underline;
+}
+.b-more .b-more-credits {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+.b-more-credits h2 {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: normal;
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+    margin: 50px 0 8px;
+}
+.b-more-types img { 
+    margin-left: -5px;
+}
+.b-footer {
+    padding: 50px 0 100px;
+    background: rgb(244, 245, 246);
+}
+.b-footer-links {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+.b-footer-links a:link,
+.b-footer-links a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+.b-footer-about .b-footer-copyright {
+    font-size: 14px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #777777;
+}
+
+
+.g-wrapper {
+    width: 80%;
+    margin: 0 10%;
+}
+.b-more-types { 
+    text-align: center;
+    margin-bottom: 10px;
+}
+.b-more-types img { margin-left: 5px;}
+.b-more-prices {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.b-more-demo {
+    text-align: center;
+}
+.b-footer-about {
+    margin-bottom: 20px;
+}
+.b-footer-social {
+    float: left;
+}
+.b-footer-appstore {
+    float: right;
+}
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (max-width: 985px) and (min-width: 480px) { .b-more-credits h2 { font-size: 32px; } }
+@media only screen and (max-width: 875px) and (min-width: 480px) { .b-more-credits h2 { font-size: 30px; } }
+@media only screen and (max-width: 820px) and (min-width: 480px) { .b-more-credits h2 { font-size: 28px; } }
+@media only screen and (min-width: 768px) and (min-width: 480px) {
+
+/* ====================
+    WIDE
+   ==================== */
+    .b-main h1 { 
+        font-size: 44px;
+        line-height: 50px;
+        margin: 75px 0 22px;
+    }
+    .b-main h2 {
+        font-size: 24px;
+        line-height: 38px;
+    }
+    .b-main-button {
+        font-size: 22px;
+        line-height: 26px;
+        padding: 25px;
+    }
+    .b-main-iphone {
+        font-size: 15px;
+        line-height: 16px;
+        background-image: url(/home/img/apple.png);
+        padding: 15px 0;
+    }
+    .b-main { height: 90%; }
+    #hellobar_pusher { display: none }
+    .b-main-logo { margin-top: 98px }
+}
+@media only screen and (min-width: 1124px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+   .g-wrapper {
+       width: 924px;
+       margin: 0 auto;
+   }
+   .b-more-types {
+       width: 220px;
+       margin-right: 40px;
+       margin-bottom: 0;
+       float: left;
+   }
+   .b-more-prices {
+       width: 400px;
+       float: left;
+       margin-right: 0px;
+       margin-bottom: 0;
+   }
+   .b-more-demo {
+       width: 250px;
+       float: right;
+   }
+   .b-footer-about {
+       float: left;
+       margin-right: 100px;
+   }
+   .b-footer-social {
+       float: left;
+   }
+   .b-footer-appstore {
+       float: right;
+   }
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
