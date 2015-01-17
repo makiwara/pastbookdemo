@@ -14,6 +14,19 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
+$app->get('/status', function () use ($app) {
+    return '{done: true}'
+});
+
+$app->get('/queue', function () use ($app) {
+    return '{done: true}'
+});
+
+$app->get('/process', function () use ($app) {
+    return '{done: true}'
+});
+
+
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
         return;
