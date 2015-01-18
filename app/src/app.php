@@ -24,7 +24,7 @@ $app['twig'] = $app->extend('twig', function ($twig, $app) {
 });
 
 
-require_once('../config/db.php')
+require_once('../config/db.php');
 
 $app->register(new Silex\Provider\DoctrineServiceProvider(), $app['dbal']);
 
