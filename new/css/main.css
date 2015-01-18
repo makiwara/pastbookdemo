@@ -203,6 +203,48 @@ nav a.nav-current {
     width: 90px;
     float: left;
 }
+#pricing h1 { text-align: center; }
+#pricing img { width: 100%;}
+#pricing .pricing-table {
+    width: 300px;
+    margin: 0 auto;
+}
+#pricing .pricing-head { padding: 0 10px; }
+#pricing .pricing-one {
+    border-top: 1px solid #e5e5e5;
+    clear: both;
+    padding: 5px 10px 10px;
+}
+#pricing .pricing-title {
+    font-weight: bold;
+    float: left;
+    width: 110px;
+}
+#pricing .pricing-pages, #pricing .pricing-photos {
+    float: left;
+    width: 50px;
+    text-align: center;
+}
+#pricing .pricing-price {
+    float: left;
+    width: 50px;
+    margin-left: 10px;
+}
+#pricing .pricing-head div {
+    font-size: 10px;
+    padding: 5px 0;
+}
+#pricing .pricing-price strong {
+    color: #008000;
+}
+#pricing .pricing-one:nth-child(odd) {
+    background-color: rgba(0,0,0, 0.05);
+}
+#shipping .g-wrapper, #shipping h1, #shipping h2, #shipping p { text-align: center; }
+#shipping h1 { padding: 20px 20px 0;}
+#shipping h2 { padding: 10px;}
+
+.g-center-button.g-block { padding-top: 0 }
 
 
 /* ==========================================================================
@@ -223,13 +265,15 @@ nav a.nav-current {
     #features h2 { text-align: center; margin-bottom: 5px; }
     #features .features-txt { padding: 20px; }
     #features .features-center { margin-top: 20px }
-    #features a.g-button:link, #features a.g-button:visited,
-    #features .g-button  { margin: 20px 20px 10px }
+    .g-center-button a.g-button:link, .g-center-button a.g-button:visited,
+    .g-center-button .g-button { margin: 0 20px 10px }
     #features .features-instagram .g-button { margin: 0 0px 0px 15px !important; }
+    #pricing img { display: none }
 }
 @media only screen and (max-width: 767px) and (min-width: 321px) { /* =============== iPadish */
     .g-wrapper { margin: 0 20px; }
     .g-block { padding: 20px 0; }
+    .g-block-top { padding-top: 0;}
     h1 { font-size: 24px }
     h2 { font-size: 20px }
     p  { font-size: 16px }
@@ -250,10 +294,14 @@ nav a.nav-current {
     #features .features-instagram h2 { display: inline; float: left; margin: 7px 0 0;}
     #features .features-instagram .g-button { margin: 0 0px 10px 10px !important; }
     #features .features-instagram-txt { margin-bottom: 20px }
+    #pricing img { display: block; margin-top: 10px;}
+    .g-center-button a.g-button:link, .g-center-button a.g-button:visited,
+    .g-center-button .g-button { margin-top: 0 }
 }
 @media only screen and (max-width: 768px) and (min-width: 768px) { /* =============== iPadish */
     .g-wrapper { margin: 0 20px; }
     .g-block { padding: 20px 0; }
+    .g-block-top { padding-top: 0;}
     h1 { font-size: 24px }
     h2 { font-size: 20px }
     p  { font-size: 16px }
@@ -261,12 +309,12 @@ nav a.nav-current {
     .g-button { max-width: 250px; }
     a.m-button-secondary:link, a.m-button-secondary:visited,
     .m-button-secondary { max-width: 240px; }
-    #passbook img { margin-top: 20px;}
+    #passbook { margin-bottom: 60px }
+    #passbook img { margin-top: 60px;}
     #passbook iframe { width: 400px; height: 400px; margin-top: -50px; }
     #passbook .passbook-box { width: 300px; margin-right: 20px; float: left; }
     #passbook h1 { margin: 30px 0 20px }
     #passbook p  { font-size: 16px; }
-    #passbook .g-button { margin: 20px 0;}
     #features .features-img { padding: 40px 0; width: 55%;}
     #features .features-img img { width: 260px;}
     #features h2 { text-align: center; margin-bottom: 10px; }
@@ -285,10 +333,45 @@ nav a.nav-current {
         padding: 0;
     }
     #features .features-instagram .g-button { margin: 0 0px 8px 40px !important; }
+    #pricing img { display: block; margin-top: 20px;}
+    #pricing .pricing-table {
+        width: 720px;
+        margin: 0 auto;
+    }
+    #pricing .pricing-head { 
+        padding: 0;
+        float: left;
+    }
+    #pricing .pricing-one {
+        clear: none;
+        padding: 5px 0px 10px;
+        float: left;
+        border: 0;
+    }
+    #pricing .pricing-title, #pricing .pricing-price,
+    #pricing .pricing-pages, #pricing .pricing-photos {
+        text-align: center;
+        float: none;
+        width: auto;
+        padding: 5px;
+        margin: 0;
+    }
+    #pricing .pricing-title { border-bottom: 1px solid #e5e5e5; padding: 0 15px; }
+    #pricing .pricing-head div {
+        padding: 8px 0 4px;
+        font-size: 14px;
+        width: 80px;
+        text-align: left
+    }
+    #pricing .pricing-head .pricing-title { padding-top: 4px; }
+    #pricing .pricing-price strong { display: block; text-align: center; }
+    .g-center-button a.g-button:link, .g-center-button a.g-button:visited,
+    .g-center-button .g-button { margin: 0 auto 10px}
 }
 @media only screen and (max-width: 1024px) and (min-width: 769px) { /*=============== Landscape */
     .g-wrapper { width: 80%; min-width: 768px; margin: 0 auto; }
     .g-block { padding: 30px 0; }
+    .g-block-top { padding-top: 0;}
     h1 { font-size: 24px }
     h2 { font-size: 20px }
     p  { font-size: 16px }
@@ -314,13 +397,12 @@ nav a.nav-current {
     nav a { padding-left: 15px; padding-right: 15px }
     nav { position: fixed; width: 100%;}
     .nav { display:block; height: 43px }
-    #passbook { width: 768px; margin: 0 auto;}
-    #passbook img { margin-top: 20px;}
+    #passbook { width: 768px; margin: 0 auto 40px }
+    #passbook img { margin-top: 40px;}
     #passbook iframe { width: 400px; height: 400px; margin-top: -45px; }
     #passbook .passbook-box { width: 300px; margin-right: 40px; float: left; }
     #passbook h1 { margin: 30px 0 20px }
     #passbook p  { font-size: 16px; }
-    #passbook .g-button { margin: 20px 0;}
     #features .features-img { padding: 40px 0; width: 55%;}
     #features .features-img img { width: 350px;}
     #features h2 { text-align: center; margin-bottom: 10px; }
@@ -339,10 +421,45 @@ nav a.nav-current {
         padding: 0 0 10px;
     }
     #features .features-instagram .g-button { margin: 0 0px 8px 40px !important; }
+    #pricing img { display: block; margin: 20px auto 0; max-width: 917px;}
+    #pricing .pricing-table {
+        width: 720px;
+        margin: 0 auto;
+    }
+    #pricing .pricing-head { 
+        padding: 0;
+        float: left;
+    }
+    #pricing .pricing-one {
+        clear: none;
+        padding: 5px 0px 10px;
+        float: left;
+        border: 0;
+    }
+    #pricing .pricing-title, #pricing .pricing-price,
+    #pricing .pricing-pages, #pricing .pricing-photos {
+        text-align: center;
+        float: none;
+        width: auto;
+        padding: 5px;
+        margin: 0;
+    }
+    #pricing .pricing-title { border-bottom: 1px solid #e5e5e5; padding: 0 15px; }
+    #pricing .pricing-head div {
+        padding: 8px 0 4px;
+        font-size: 14px;
+        width: 80px;
+        text-align: left
+    }
+    #pricing .pricing-head .pricing-title { padding-top: 4px; }
+    #pricing .pricing-price strong { display: block; text-align: center; }
+    .g-center-button a.g-button:link, .g-center-button a.g-button:visited,
+    .g-center-button .g-button { margin: 0 auto 10px }
 }
 @media only screen and (min-width: 1025px) { /* ===================================== Wide */
     .g-wrapper { width: 80%; min-width: 768px; margin: 0 auto; }
     .g-block { padding: 50px 0; }
+    .g-block-top { padding-top: 0;}
     h1 { font-size: 30px }
     h2 { font-size: 24px }
     p  { font-size: 16px }
@@ -374,7 +491,6 @@ nav a.nav-current {
     #passbook .passbook-box { width: 450px; margin-right: 74px; float: left; }
     #passbook h1 { margin: 30px 0 20px }
     #passbook p  { font-size: 16px; }
-    #passbook .g-button { margin: 30px 0;}
     #features .features-img { padding: 40px 0; width: 51%;}
     #features .features-img img { width: 350px;}
     #features h2 { text-align: center; margin-bottom: 10px; }
@@ -400,6 +516,42 @@ nav a.nav-current {
     }
     #features .features-instagram .g-button { margin: 0 0px 8px 45px !important; }
     #features .features-instagram-buttons p { text-align: center; }
+    #pricing img { display: block; margin: 20px auto 0; max-width: 917px;}
+    #pricing .pricing-table {
+        width: 780px;
+        margin: 0 auto;
+    }
+    #pricing .pricing-head { 
+        padding: 0;
+        float: left;
+    }
+    #pricing .pricing-one {
+        clear: none;
+        padding: 5px 0px 10px;
+        float: left;
+        border: 0;
+    }
+    #pricing .pricing-title, #pricing .pricing-price,
+    #pricing .pricing-pages, #pricing .pricing-photos {
+        text-align: center;
+        float: none;
+        width: auto;
+        font-size: 18px;
+        padding: 5px;
+        margin: 0;
+    }
+    #pricing .pricing-title { border-bottom: 1px solid #e5e5e5; padding: 0 15px; }
+    #pricing .pricing-head div {
+        padding: 8px 0 4px;
+        font-size: 16px;
+        width: 100px;
+        text-align: left
+    }
+    #pricing .pricing-head .pricing-title { padding-top: 4px; }
+    #pricing .pricing-price strong { display: block; text-align: center; }
+    .g-center-button a.g-button:link, .g-center-button a.g-button:visited,
+    .g-center-button .g-button { margin: 0 auto 10px }
+
 }
 
 
