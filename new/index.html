@@ -294,7 +294,6 @@
             </div>
         </footer>
 
-
         <!-- ================================================ -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>window.jQuery||document.write('<script src=js/vendor/jquery-1.11.1.min.js><\/script>')</script>
@@ -307,17 +306,17 @@
           ga('send', 'pageview');
         </script>
         <script type="text/javascript">
-        function highlight() {
-            $('nav a.nav-current').removeClass('nav-current');
-            var found = false;
-            var $found = false;
-            $('nav a').each(function(){
-                if ($(this.href.replace(/^.*#/, '#')).offset().top < $('body').scrollTop() + 200)
-                    $found = $(this);
-            })
-            if ($found) $found.addClass('nav-current');
-        }
-        $(function(){ $(window).scroll(highlight) })
+            function highlight() {
+                $('nav a.nav-current').removeClass('nav-current');
+                var found = false;
+                var $found = false;
+                $('nav a').each(function(){
+                    if ($(this.href.replace(/^.*#/, '#')).offset().top < $('body').scrollTop() + 200)
+                        $found = $(this);
+                })
+                if ($found) $found.addClass('nav-current');
+            }
+            $(function(){ $(window).scroll(highlight) })
         </script>
     </body>
 </html>
