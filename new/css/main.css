@@ -1,0 +1,533 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html { height: 100% }
+body {
+    height: 100%;
+    background-image: url(/new/img/bg.jpg);
+    background-size: hover;
+    background-attachment: fixed;
+}
+.g-background-white {
+    background: #ffffff;
+}
+.g-background-gray {
+    background: #e5e5e5;
+}
+h1, h2, p {
+    font-weight: normal;
+    margin: 0; padding: 0;
+    line-height: 1.4em;
+    text-shadow: 0px 1px 4px rgba(0,0,0,0.25);
+}
+h1, h2 {
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    color: #ffffff;
+}
+p {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #ffffff;
+}
+.g-background-white h1, .g-background-white h2, .g-background-white p { color: #222222; text-shadow: none; }
+.g-background-gray h1, .g-background-gray h2, .g-background-gray p { color: #222222; text-shadow: none; }
+a:link, a:visited, a:hover, a:active { color: #0000ff; text-decoration: underline; }
+a.g-button:link, a.g-button:visited,
+.g-button {
+    display: block;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 15px 10px;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    background-color: #B4EC51;
+    background-image: linear-gradient(-180deg, #B4EC51 -20%, #429321 100%);
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.25);
+    text-shadow: 0px 1px 4px rgba(0,0,0,0.25);
+    text-align: center;
+    font-weight: 300;
+    text-decoration: none;
+    margin: 10px 0;
+}
+a.g-button:hover, a.g-button:active {
+    background-image: linear-gradient(-180deg, #B4EC51 0%, #429321 120%);
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.25);
+}
+a.m-button-instagram:link, a.m-button-instagram:visited,
+.m-button-instagram {
+    background-image: linear-gradient(-180deg, #ECBE51 0%, #936021 100%);
+}
+a.m-button-instagram:hover, a.m-button-instagram:active {
+    background-image: linear-gradient(-180deg, #ECBE51 0%, #936021 120%);
+}
+a.m-button-facebook:link, a.m-button-facebook:visited,
+.m-button-facebook {
+    background-image: linear-gradient(-180deg, #515DEC 0%, #212F93 100%);
+}
+a.m-button-facebook:hover, a.m-button-facebook:active {
+    background-image: linear-gradient(-180deg, #515DEC 0%, #212F93 120%);
+}
+a.m-button-instagram:link, a.m-button-instagram:visited,
+.m-button-instagram,
+a.m-button-facebook:link, a.m-button-facebook:visited,
+.m-button-facebook {
+    padding: 10px 10px;
+}
+
+a.m-button-secondary:link, a.m-button-secondary:visited,
+.m-button-secondary {
+    color: #444444;
+    background-color: rgba(255,255,255, 0.75);
+    background-image: url(/new/img/apple.png);
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    font-size: 14px; line-height: 14px;
+    padding: 15px 0 15px 35px;
+    border: none;
+    text-align: left;
+    text-shadow: none;
+    font-weight: normal;
+}
+.nav { display: none }
+nav {
+    text-align: center;
+    padding: 10px 0;
+    text-transform: uppercase;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.25);
+}
+nav a {
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    padding: 8px 5px;
+    margin: 0 5px;
+    font-weight: 300;
+}
+nav a:link, nav a:visited, nav a:hover, nav a:active { 
+    color: #666666; text-decoration: none; 
+}
+nav a:hover, nav a:active {
+    background: #e5e5e5;
+    border-bottom: 5px solid #e5e5e5;
+    border-top: 5px solid #e5e5e5;
+}
+nav a.nav-current {
+    border-bottom: 5px solid #666666;
+}
+
+#passbook img {
+    width: 191px; height: 39px;
+    display: block;
+    margin-top: 20px;
+}
+#passbook iframe {
+    width: 500px;
+    height: 500px;
+    box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.5);
+}
+
+#features .features-img {
+    background-size: 150%;
+    background-position: center center;
+    text-align: center;
+}
+#features .features-img img { box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.5); }
+#features h1, #features h2 { text-align: center; margin: 10px 20px; }
+#features .features-center { margin-top: 50px; text-align: center; }
+#features .features-center img { max-width: 80%;}
+#features .g-button { margin: 20px auto 10px }
+#features .features-instagram { margin-bottom: 20px; }
+#features .features-instagram p {
+    margin: 10px 0;
+    text-align: left;
+}
+#features .features-instagram .g-button {
+    width: 90px;
+    float: left;
+}
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media only screen and (max-width: 320px) { /* ====================================== iPhone */
+    .g-wrapper { margin: 0 20px; }
+    .g-block { padding: 20px 0; }
+    h1 { font-size: 24px }
+    h2 { font-size: 18px }
+    p  { font-size: 14px }
+    nav { display: none }
+    #passbook iframe { width: 280px; height: 280px; margin: 10px 0;}
+    #passbook h1 { margin: 20px 0 10px;}
+    #passbook p  { font-size: 16px; }
+    #features .features-img { padding: 30px; }
+    #features .features-img img { width: 260px;}
+    #features h2 { text-align: center; margin-bottom: 5px; }
+    #features .features-txt { padding: 20px; }
+    #features .features-center { margin-top: 20px }
+    #features a.g-button:link, #features a.g-button:visited,
+    #features .g-button  { margin: 20px 20px 10px }
+    #features .features-instagram .g-button { margin: 0 0px 0px 15px !important; }
+}
+@media only screen and (max-width: 767px) and (min-width: 321px) { /* =============== iPadish */
+    .g-wrapper { margin: 0 20px; }
+    .g-block { padding: 20px 0; }
+    h1 { font-size: 24px }
+    h2 { font-size: 20px }
+    p  { font-size: 16px }
+    a.g-button:link, a.g-button:visited,
+    .g-button { max-width: 250px; margin-left: auto; margin-right: auto }
+    a.m-button-secondary:link, a.m-button-secondary:visited,
+    .m-button-secondary { max-width: 240px }
+    #passbook { text-align: center }
+    #passbook img { display:inline-block; margin-top: 0;}
+    #passbook iframe { width: 280px; height: 280px; margin: 20px 0;}
+    #passbook .passbook-box { width: 100%; text-align: center }
+    #passbook h1 { margin: 20px 0 10px;}
+    #passbook p  { font-size: 16px; }
+    #features .features-img { padding: 30px; }
+    #features .features-img img { width: 260px;}
+    #features h2 { text-align: center; margin-bottom: 5px; }
+    #features .features-txt { padding: 20px; max-width: 400px; margin: 0 auto;}
+    #features .features-instagram h2 { display: inline; float: left; margin: 7px 0 0;}
+    #features .features-instagram .g-button { margin: 0 0px 10px 10px !important; }
+    #features .features-instagram-txt { margin-bottom: 20px }
+}
+@media only screen and (max-width: 768px) and (min-width: 768px) { /* =============== iPadish */
+    .g-wrapper { margin: 0 20px; }
+    .g-block { padding: 20px 0; }
+    h1 { font-size: 24px }
+    h2 { font-size: 20px }
+    p  { font-size: 16px }
+    a.g-button:link, a.g-button:visited,
+    .g-button { max-width: 250px; }
+    a.m-button-secondary:link, a.m-button-secondary:visited,
+    .m-button-secondary { max-width: 240px; }
+    #passbook img { margin-top: 20px;}
+    #passbook iframe { width: 400px; height: 400px; margin-top: -50px; }
+    #passbook .passbook-box { width: 300px; margin-right: 20px; float: left; }
+    #passbook h1 { margin: 30px 0 20px }
+    #passbook p  { font-size: 16px; }
+    #passbook .g-button { margin: 20px 0;}
+    #features .features-img { padding: 40px 0; width: 55%;}
+    #features .features-img img { width: 260px;}
+    #features h2 { text-align: center; margin-bottom: 10px; }
+    #features .features-txt { padding: 20px 40px }
+    #features .features-one { margin: 20px 0;}
+    #features .features-left .features-img  { float: left;  margin-right: 40px;}
+    #features .features-right .features-img { float: right; margin-left:  40px; }
+    #features .features-instagram-txt { 
+        float: right; 
+        width: 280px;
+        padding: 0 30px;
+    }
+    #features .features-instagram-buttons { 
+        float: right; 
+        width: 360px;
+        padding: 0;
+    }
+    #features .features-instagram .g-button { margin: 0 0px 8px 40px !important; }
+}
+@media only screen and (max-width: 1024px) and (min-width: 769px) { /*=============== Landscape */
+    .g-wrapper { width: 80%; min-width: 768px; margin: 0 auto; }
+    .g-block { padding: 30px 0; }
+    h1 { font-size: 24px }
+    h2 { font-size: 20px }
+    p  { font-size: 16px }
+    a.g-button:link, a.g-button:visited,
+    .g-button { 
+        padding: 20px;
+        font-size: 22px;
+        line-height: 22px;
+        max-width: 250px;
+    }
+    a.m-button-secondary:link, a.m-button-secondary:visited,
+    .m-button-secondary { 
+        font-size: 14px; 
+        line-height: 14px;
+        padding: 15px 0 15px 35px;
+        max-width: 260px; 
+    }
+    a.m-button-instagram:link, a.m-button-instagram:visited, .m-button-instagram,
+    a.m-button-facebook:link, a.m-button-facebook:visited, .m-button-facebook {
+        padding: 10px 10px;
+        font-size: 18px;
+    }
+    nav a { padding-left: 15px; padding-right: 15px }
+    nav { position: fixed; width: 100%;}
+    .nav { display:block; height: 43px }
+    #passbook { width: 768px; margin: 0 auto;}
+    #passbook img { margin-top: 20px;}
+    #passbook iframe { width: 400px; height: 400px; margin-top: -45px; }
+    #passbook .passbook-box { width: 300px; margin-right: 40px; float: left; }
+    #passbook h1 { margin: 30px 0 20px }
+    #passbook p  { font-size: 16px; }
+    #passbook .g-button { margin: 20px 0;}
+    #features .features-img { padding: 40px 0; width: 55%;}
+    #features .features-img img { width: 350px;}
+    #features h2 { text-align: center; margin-bottom: 10px; }
+    #features .features-txt { padding: 60px 40px }
+    #features .features-one { margin: 20px 0;}
+    #features .features-left .features-img  { float: left;  margin-right: 40px;}
+    #features .features-right .features-img { float: right; margin-left:  40px; }
+    #features .features-instagram-txt { 
+        float: right; 
+        width: 280px;
+        padding: 0 20px;
+    }
+    #features .features-instagram-buttons { 
+        float: left; 
+        width: 360px;
+        padding: 0 0 10px;
+    }
+    #features .features-instagram .g-button { margin: 0 0px 8px 40px !important; }
+}
+@media only screen and (min-width: 1025px) { /* ===================================== Wide */
+    .g-wrapper { width: 80%; min-width: 768px; margin: 0 auto; }
+    .g-block { padding: 50px 0; }
+    h1 { font-size: 30px }
+    h2 { font-size: 24px }
+    p  { font-size: 16px }
+    a.g-button:link, a.g-button:visited,
+    .g-button { 
+        padding: 20px;
+        font-size: 24px;
+        line-height: 24px;
+        max-width: 250px;
+    }
+    a.m-button-secondary:link, a.m-button-secondary:visited,
+    .m-button-secondary { 
+        font-size: 14px; 
+        line-height: 14px;
+        padding: 15px 0 15px 35px;
+        max-width: 260px; 
+    }
+    a.m-button-instagram:link, a.m-button-instagram:visited, .m-button-instagram,
+    a.m-button-facebook:link, a.m-button-facebook:visited, .m-button-facebook {
+        padding: 10px 10px;
+        font-size: 18px;
+    }
+    nav a { padding-left: 15px; padding-right: 15px }
+    nav { position: fixed; width: 100%;}
+    .nav { display:block; height: 43px }
+    #passbook .g-wrapper { width: 1024px; margin: 0 auto; }
+    #passbook img { margin-top: 50px;}
+    #passbook iframe { width: 500px; height: 500px; margin-top: -80px; }
+    #passbook .passbook-box { width: 450px; margin-right: 74px; float: left; }
+    #passbook h1 { margin: 30px 0 20px }
+    #passbook p  { font-size: 16px; }
+    #passbook .g-button { margin: 30px 0;}
+    #features .features-img { padding: 40px 0; width: 51%;}
+    #features .features-img img { width: 350px;}
+    #features h2 { text-align: center; margin-bottom: 10px; }
+    #features .features-txt { padding: 60px 40px;  }
+    #features .features-one { margin: 20px 0;}
+    #features .features-left .features-img  { float: left;  margin-right: 60px;}
+    #features .features-right .features-img { float: right; margin-left:  60px; }
+    #features .features-left .features-txt  { margin-right: 10%;}
+    #features .features-right .features-txt { margin-left: 100px;}
+    #features .features-instagram {
+        width: 768px;
+        margin: 20px auto 50px;
+    }
+    #features .features-instagram-txt { 
+        float: left; 
+        width: 280px;
+        padding: 0 20px;
+    }
+    #features .features-instagram-buttons { 
+        float: left; 
+        width: 360px;
+        padding: 0 0 10px;
+    }
+    #features .features-instagram .g-button { margin: 0 0px 8px 45px !important; }
+    #features .features-instagram-buttons p { text-align: center; }
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
