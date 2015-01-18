@@ -24,8 +24,8 @@ $app['twig'] = $app->extend('twig', function ($twig, $app) {
 });
 
 
+// Connected to Doctrine DBAL
 require_once('../config/db.php');
-
 $app->register(new Silex\Provider\DoctrineServiceProvider(), $app['dbal']);
 
 return $app;
