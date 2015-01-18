@@ -240,6 +240,10 @@ div, h1, h2, h3 {
         background-image: url(/home/img/apple.png);
         padding: 15px 0;
     }
+    .b-more-credits h2 { 
+        font-size: 36px; 
+        line-height: 40px;
+    }
     .b-main { height: 90%; }
     #hellobar_pusher { display: none }
     .b-main-logo { margin-top: 98px }
