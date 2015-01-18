@@ -4,11 +4,3 @@
 
 $app['twig.path'] = array(__DIR__.'/../templates');
 $app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
-
-$app['dbal'] = array(
-    'dbname' => 'pastbook',
-    'user' => 'username',
-    'password' => 'password',
-    'host' => 'localhost',
-    'driver' => 'pdo_mysql',
-);
