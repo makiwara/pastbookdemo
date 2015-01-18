@@ -21,7 +21,7 @@
         <![endif]-->
 
         <nav class="g-background-white">
-            <a href="#pastbook">Pastbook</a>
+            <a class="nav-default" href="#pastbook">Pastbook</a>
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
             <a href="#testimonials">Testimonials</a>
@@ -308,8 +308,7 @@
         <script type="text/javascript">
             function highlight() {
                 $('nav a.nav-current').removeClass('nav-current');
-                var found = false;
-                var $found = false;
+                var $found = $('nav a.nav-default');
                 $('nav a').each(function(){
                     if ($(this.href.replace(/^.*#/, '#')).offset().top < $('body').scrollTop() + 200)
                         $found = $(this);
