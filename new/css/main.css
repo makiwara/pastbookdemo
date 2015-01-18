@@ -173,12 +173,12 @@ nav a.nav-current {
     border-bottom: 5px solid #666666;
 }
 
-#passbook img {
+#pastbook img {
     width: 191px; height: 39px;
     display: block;
     margin-top: 20px;
 }
-#passbook iframe {
+#pastbook iframe {
     width: 500px;
     height: 500px;
     box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.5);
@@ -246,6 +246,31 @@ nav a.nav-current {
 
 .g-center-button.g-block { padding-top: 0 }
 
+#testimonials h1 { text-align: center; }
+#credits {
+    background-image: url(/new/img/bg-users.jpg);
+    background-size: cover;
+    box-shadow: inset 0px 1px 10px 0px rgba(0,0,0,0.25);
+}
+#credits .credits-txt { font-style: italic; }
+#credits .credits-name { color: #666666;}
+#brands h1 { text-align: center; margin-bottom: 20px; }
+#brands .brands-img { text-align: center; }
+#brands img { display:inline; height: 70px;}
+#brands .brands-txt { font-style: italic; }
+#brands .brands-name { color: #666666;}
+
+footer { text-align: center; line-height: 30px;}
+footer a { white-space: nowrap; margin: 10px; }
+footer a:link, footer a:visited { color: #000000; text-decoration: underline; }
+footer .footer-menu { margin-top: 50px; }
+footer .footer-copyright {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #666666;
+}
+
 
 /* ==========================================================================
    Media Queries
@@ -257,9 +282,9 @@ nav a.nav-current {
     h2 { font-size: 18px }
     p  { font-size: 14px }
     nav { display: none }
-    #passbook iframe { width: 280px; height: 280px; margin: 10px 0;}
-    #passbook h1 { margin: 20px 0 10px;}
-    #passbook p  { font-size: 16px; }
+    #pastbook iframe { width: 280px; height: 280px; margin: 10px 0;}
+    #pastbook h1 { margin: 20px 0 10px;}
+    #pastbook p  { font-size: 16px; }
     #features .features-img { padding: 30px; }
     #features .features-img img { width: 260px;}
     #features h2 { text-align: center; margin-bottom: 5px; }
@@ -269,6 +294,18 @@ nav a.nav-current {
     .g-center-button .g-button { margin: 0 20px 10px }
     #features .features-instagram .g-button { margin: 0 0px 0px 15px !important; }
     #pricing img { display: none }
+    #credits .credits-one { padding: 10px 0 20px 60px; }
+    #credits .credits-one:nth-child(even) { padding: 10px 60px 20px 0; }
+    #credits img { 
+        width: 49px; height: 49px; 
+        float: left; margin-right: 10px;
+        margin-left: -60px;
+    }
+    #credits .credits-one:nth-child(even) img { 
+        float: right; margin-left: 10px; 
+        margin-right: -60px;
+    }
+    #brands .brands-one { padding: 10px 0px 20px }
 }
 @media only screen and (max-width: 767px) and (min-width: 321px) { /* =============== iPadish */
     .g-wrapper { margin: 0 20px; }
@@ -281,12 +318,12 @@ nav a.nav-current {
     .g-button { max-width: 250px; margin-left: auto; margin-right: auto }
     a.m-button-secondary:link, a.m-button-secondary:visited,
     .m-button-secondary { max-width: 240px }
-    #passbook { text-align: center }
-    #passbook img { display:inline-block; margin-top: 0;}
-    #passbook iframe { width: 280px; height: 280px; margin: 20px 0;}
-    #passbook .passbook-box { width: 100%; text-align: center }
-    #passbook h1 { margin: 20px 0 10px;}
-    #passbook p  { font-size: 16px; }
+    #pastbook { text-align: center }
+    #pastbook img { display:inline-block; margin-top: 0;}
+    #pastbook iframe { width: 280px; height: 280px; margin: 20px 0;}
+    #pastbook .pastbook-box { width: 100%; text-align: center }
+    #pastbook h1 { margin: 20px 0 10px;}
+    #pastbook p  { font-size: 16px; }
     #features .features-img { padding: 30px; }
     #features .features-img img { width: 260px;}
     #features h2 { text-align: center; margin-bottom: 5px; }
@@ -297,6 +334,18 @@ nav a.nav-current {
     #pricing img { display: block; margin-top: 10px;}
     .g-center-button a.g-button:link, .g-center-button a.g-button:visited,
     .g-center-button .g-button { margin-top: 0 }
+    #credits .credits-one { padding: 20px 10px 30px 130px; }
+    #credits .credits-one:nth-child(even) { padding-left: 10px; padding-right: 130px }
+    #credits img { 
+        width: 98px; height: 98px; 
+        float: left; margin-right: 20px;
+        margin-left: -120px;
+    }
+    #credits .credits-one:nth-child(even) img { 
+        float: right; margin-left: 20px; 
+        margin-right: -120px;
+    }
+    #brands .brands-one { width: 400px; margin: 30px auto; }
 }
 @media only screen and (max-width: 768px) and (min-width: 768px) { /* =============== iPadish */
     .g-wrapper { margin: 0 20px; }
@@ -309,12 +358,12 @@ nav a.nav-current {
     .g-button { max-width: 250px; }
     a.m-button-secondary:link, a.m-button-secondary:visited,
     .m-button-secondary { max-width: 240px; }
-    #passbook { margin-bottom: 60px }
-    #passbook img { margin-top: 60px;}
-    #passbook iframe { width: 400px; height: 400px; margin-top: -50px; }
-    #passbook .passbook-box { width: 300px; margin-right: 20px; float: left; }
-    #passbook h1 { margin: 30px 0 20px }
-    #passbook p  { font-size: 16px; }
+    #pastbook { margin-bottom: 60px }
+    #pastbook img { margin-top: 60px;}
+    #pastbook iframe { width: 400px; height: 400px; margin-top: -50px; }
+    #pastbook .pastbook-box { width: 300px; margin-right: 20px; float: left; }
+    #pastbook h1 { margin: 30px 0 20px }
+    #pastbook p  { font-size: 16px; }
     #features .features-img { padding: 40px 0; width: 55%;}
     #features .features-img img { width: 260px;}
     #features h2 { text-align: center; margin-bottom: 10px; }
@@ -367,6 +416,21 @@ nav a.nav-current {
     #pricing .pricing-price strong { display: block; text-align: center; }
     .g-center-button a.g-button:link, .g-center-button a.g-button:visited,
     .g-center-button .g-button { margin: 0 auto 10px}
+    #credits .credits-one {
+        width: 200px;
+        padding: 20px;
+        float: left;
+    }
+    #credits .credits-one img {
+        display: block;
+        margin: 5px auto 15px;
+    }
+    #brands img { height: 60px; }
+    #brands .brands-one {
+        width: 200px;
+        padding: 50px 20px;
+        float: left;
+    }
 }
 @media only screen and (max-width: 1024px) and (min-width: 769px) { /*=============== Landscape */
     .g-wrapper { width: 80%; min-width: 768px; margin: 0 auto; }
@@ -397,12 +461,12 @@ nav a.nav-current {
     nav a { padding-left: 15px; padding-right: 15px }
     nav { position: fixed; width: 100%;}
     .nav { display:block; height: 43px }
-    #passbook { width: 768px; margin: 0 auto 40px }
-    #passbook img { margin-top: 40px;}
-    #passbook iframe { width: 400px; height: 400px; margin-top: -45px; }
-    #passbook .passbook-box { width: 300px; margin-right: 40px; float: left; }
-    #passbook h1 { margin: 30px 0 20px }
-    #passbook p  { font-size: 16px; }
+    #pastbook { width: 768px; margin: 0 auto 40px }
+    #pastbook img { margin-top: 40px;}
+    #pastbook iframe { width: 400px; height: 400px; margin-top: -45px; }
+    #pastbook .pastbook-box { width: 300px; margin-right: 40px; float: left; }
+    #pastbook h1 { margin: 30px 0 20px }
+    #pastbook p  { font-size: 16px; }
     #features .features-img { padding: 40px 0; width: 55%;}
     #features .features-img img { width: 350px;}
     #features h2 { text-align: center; margin-bottom: 10px; }
@@ -455,6 +519,28 @@ nav a.nav-current {
     #pricing .pricing-price strong { display: block; text-align: center; }
     .g-center-button a.g-button:link, .g-center-button a.g-button:visited,
     .g-center-button .g-button { margin: 0 auto 10px }
+    #credits .g-wrapper {
+        width: 768px;
+        margin: 0 auto;
+    }
+    #credits .credits-one {
+        width: 200px;
+        padding: 28px;
+        float: left;
+    }
+    #credits .credits-one img {
+        display: block;
+        margin: 5px auto 15px;
+    }
+    #brands .g-wrapper {
+        width: 768px;
+        margin: 0 auto;
+    }
+    #brands .brands-one {
+        width: 200px;
+        padding: 50px 28px;
+        float: left;
+    }
 }
 @media only screen and (min-width: 1025px) { /* ===================================== Wide */
     .g-wrapper { width: 80%; min-width: 768px; margin: 0 auto; }
@@ -485,12 +571,12 @@ nav a.nav-current {
     nav a { padding-left: 15px; padding-right: 15px }
     nav { position: fixed; width: 100%;}
     .nav { display:block; height: 43px }
-    #passbook .g-wrapper { width: 1024px; margin: 0 auto; }
-    #passbook img { margin-top: 50px;}
-    #passbook iframe { width: 500px; height: 500px; margin-top: -80px; }
-    #passbook .passbook-box { width: 450px; margin-right: 74px; float: left; }
-    #passbook h1 { margin: 30px 0 20px }
-    #passbook p  { font-size: 16px; }
+    #pastbook .g-wrapper { width: 1024px; margin: 0 auto; }
+    #pastbook img { margin-top: 50px;}
+    #pastbook iframe { width: 500px; height: 500px; margin-top: -80px; }
+    #pastbook .pastbook-box { width: 450px; margin-right: 74px; float: left; }
+    #pastbook h1 { margin: 30px 0 20px }
+    #pastbook p  { font-size: 16px; }
     #features .features-img { padding: 40px 0; width: 51%;}
     #features .features-img img { width: 350px;}
     #features h2 { text-align: center; margin-bottom: 10px; }
@@ -551,7 +637,29 @@ nav a.nav-current {
     #pricing .pricing-price strong { display: block; text-align: center; }
     .g-center-button a.g-button:link, .g-center-button a.g-button:visited,
     .g-center-button .g-button { margin: 0 auto 10px }
-
+    #credits .g-wrapper {
+        width: 1024px;
+        margin: 0 auto;
+    }
+    #credits .credits-one {
+        width: 271px;
+        padding: 35px;
+        float: left;
+    }
+    #credits .credits-one img {
+        display: block;
+        margin: 5px auto 15px;
+    }
+    #brands .g-wrapper {
+        width: 1024px;
+        margin: 0 auto;
+    }
+    #brands h1 { margin-bottom: 50px; }
+    #brands .brands-one {
+        width: 271px;
+        padding: 50px 35px;
+        float: left;
+    }
 }
 
 
@@ -616,6 +724,9 @@ nav a.nav-current {
 .clearfix {
     *zoom: 1;
 }
+
+.nowrap { white-space: nowrap; }
+
 
 /* ==========================================================================
    Print styles

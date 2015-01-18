@@ -21,17 +21,17 @@
         <![endif]-->
 
         <nav class="g-background-white">
-            <a href="#top">Pastbook</a>
-            <a class="nav-current" href="#features">Features</a>
+            <a href="#pastbook">Pastbook</a>
+            <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
-            <a href="#credits">Testimonials</a>
+            <a href="#testimonials">Testimonials</a>
         </nav>
         <div class="nav"></div>
 
-        <section class="g-block" id="passbook">
+        <section class="g-block" id="pastbook">
             <div class="g-wrapper">
                 <img src="/new/img/logo.png">
-                <div class="passbook-box">
+                <div class="pastbook-box">
                     <h1>
                         Rediscover your past
                         with beautiful photo-albums
@@ -50,7 +50,6 @@
                 <iframe src="//player.vimeo.com/video/117092349" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
         </section>
-
         <section class="g-block g-background-white" id="features">
             <div class="g-wrapper features-instagram clearfix">
                 <div class="features-instagram-txt">
@@ -198,6 +197,102 @@
             </a>           
         </section>
 
+        <section class="g-block g-background-white" id="testimonials">
+            <div class="g-wrapper">
+                <h1>Helping people reliving their memories since 2012</h1>
+            </div>
+        </section>
+        <section class="g-block" id="credits">
+            <div class="g-wrapper clearfix">
+                <div class="credits-one clearfix">
+                    <img src="/new/img/users1.png">
+                    <div class="credits-txt">
+                        “Last month was my 10th anniversary with my girlfriend — I created a book with photos of all our special moments and she was amazed to see how many things we did together.”
+                    </div>
+                    <div class="credits-name">
+                        — Joe from San Francisco
+                    </div>
+                </div>
+                <div class="credits-one clearfix">
+                    <img src="/new/img/users2.png">
+                    <div class="credits-txt">
+                        “It was my father’s birthday and as usual we didn’t know what to give him. Then I found PastBook and now I know what to give him every year ;-)”
+                    </div>
+                    <div class="credits-name">
+                        — Emma from Amsterdam
+                    </div>
+                </div>
+                <div class="credits-one clearfix">
+                    <img src="/new/img/users3.png">
+                    <div class="credits-txt">
+                        “I spent my last 6 months in California for a study exchange. My mom doesn’t use Facebook so I printed a book of my travel photos to share with her.”
+                    </div>
+                    <div class="credits-name">
+                        — Teresa from Milan
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="g-block g-background-white clearfix" id="brands">
+            <div class="g-wrapper">
+                <h1>What others are saying about us</h1>
+                <div class="brands-img clearfix">
+                    <img src="/new/img/brands1.png">
+                    <img src="/new/img/brands2.png">
+                    <img src="/new/img/brands3.png">
+                    <img src="/new/img/brands4.png">
+                    <img src="/new/img/brands5.png">
+                    <img src="/new/img/brands6.png">
+                </div>
+                <div class="brands-one clearfix">
+                    <div class="brands-txt">
+                        “Just received my @pastbook; traveling back in time. All the way to Holland where I took my first #Instagram picture! ❤”
+                    </div>
+                    <div class="brands-name">
+                        — Kimberly Sunster, Instagramers.com
+                    </div>
+                </div>
+                <div class="brands-one clearfix">
+                    <div class="brands-txt">
+                        “PastBook emerges at a time when people are clearly starting to realize the value of culling through their personal, digitally-captured history to relive past moments”
+                    </div>
+                    <div class="brands-name">
+                        — TheNextWeb.com
+                    </div>
+                </div>
+                <div class="brands-one clearfix">
+                    <div class="brands-txt">
+                        “PastBook is even more than just solving a problem, it's solving a human need: rediscovering own memories.”
+                    </div>
+                    <div class="brands-name">
+                        — Steve Blank, Serial&nbsp;Entrepreneur
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="g-block g-background-gray">
+        </section>
+        <section class="g-block g-background-gray g-center-button">
+            <a class="g-button" href="?">
+                Create your PastBook
+            </a>           
+        </section>
+        <footer class="g-block g-background-gray">
+            <div class="footer-menu">
+                <a href="?">About us</a>
+                <a href="?">Blog &amp; Infos</a>
+                <span class="nowrap">
+                    <a href="?">Partnership &amp; Affiliation</a>
+                    <a href="?">Contact us</a>
+                </span>
+            </div>
+            <div class="footer-copyright">
+                Made with love in Amsterdam. <br>
+                Copyright © 2014 PastBook BV.
+            </div>
+        </footer>
 
 
         <!-- ================================================ -->
@@ -210,6 +305,19 @@
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
           ga('create', 'UA-58669119-1', 'auto');
           ga('send', 'pageview');
+        </script>
+        <script type="text/javascript">
+        function highlight() {
+            $('nav a.nav-current').removeClass('nav-current');
+            var found = false;
+            var $found = false;
+            $('nav a').each(function(){
+                if ($(this.href.replace(/^.*#/, '#')).offset().top < $('body').scrollTop() + 200)
+                    $found = $(this);
+            })
+            if ($found) $found.addClass('nav-current');
+        }
+        $(function(){ $(window).scroll(highlight) })
         </script>
     </body>
 </html>
