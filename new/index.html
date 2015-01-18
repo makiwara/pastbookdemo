@@ -21,7 +21,7 @@
         <![endif]-->
 
         <nav class="g-background-white">
-            <a class="nav-default" href="#pastbook">Pastbook</a>
+            <a class="nav-default nav-current" href="#pastbook">Pastbook</a>
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
             <a href="#testimonials">Testimonials</a>
@@ -313,7 +313,7 @@
                     if ($(this.href.replace(/^.*#/, '#')).offset().top < $('body').scrollTop() + 200)
                         $found = $(this);
                 })
-                if ($found) $found.addClass('nav-current');
+                $found.addClass('nav-current');
             }
             $(function(){ $(window).scroll(highlight) })
         </script>
