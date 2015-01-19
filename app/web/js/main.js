@@ -68,6 +68,7 @@ $(function(){
         $('.b-progress h1').html('Your photos are ready!')
         $('.b-progress-hint').html('Thank you for this incredible experience.')
         clearInterval(progress_interval);
+        $('.b-progress h1').css({ opacity: 1 });
     }
 
 })
