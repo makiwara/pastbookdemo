@@ -1,5 +1,72 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    Welcome to your new Silex Application!
+<div class="br"></div>
+<div class="b-progress">
+    <h1>Upload is in progress</h1>
+    <div class="b-progress-init js-progress-init">
+        Please wait a couple of moments 
+        while PastBook connects to Instagram.
+        <br><br>
+        Your photos will appear here soon.
+    </div>
+    <div class="b-progress-contents clearfix">
+        <div class="b-progress-hint">
+            Your photos are uploading.<br>
+            You can wait on this page or close it—upload will continue anyway.<br>
+            We will send you an email upon completion.
+        </div>
+        <img src="/app/web/img/progress.png">
+        <img src="/app/web/img/progress.png">
+        <img src="/app/web/img/progress.png">
+        <img src="/app/web/img/progress.png">
+        <img src="/app/web/img/progress.png">
+        <img src="/app/web/img/progress.png">
+        <img src="/app/web/img/progress.png">
+    </div>
+</div>
+<div class="b-form">
+    <h1>Instagram — PastBook</h1>
+    <div class="b-form-input">
+        <label for="id-email">Provide your email, please</label>
+        <input type="email" id="id-email">
+        <div class="b-form-hint">
+            We will send only link to your photos. No spam, no ads.
+        </div>
+    </div>
+    <div class="b-form-input">
+        <label>Select time range to upload</label>
+        <div class="b-form-selector clearfix">
+            <div class="b-form-range">
+                <div class="b-form-tri"><div class="b-form-triangle">▼</div></div>
+                <div id="id-range" class="b-form-range-one b-form-range-selected" data-value="year">By year</div>
+                <div class="b-form-range-values">
+                    <div class="b-form-range-one" data-value="month">By month</div>
+                    <div class="b-form-range-one" data-value="year">By year</div>
+                    <div class="b-form-range-one" data-value="recent">Recent</div>
+                </div>
+            </div>
+            <div class="b-form-value js-form-range-year">
+                <div class="b-form-value-one b-form-value-year display">
+                    <input type="text" id="id-year" value="2014">
+                </div>
+                <div class="b-form-value-one b-form-value-month">
+                    <input type="text" id="id-month" value="01">
+                    <input type="text" id="id-month-year" value="2014">
+                </div>
+                <div class="b-form-value-one b-form-value-recent">
+                    <input type="text" id="id-recent" value="10">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="b-form-input">
+        <img class="js-start" src="/app/web/img/app-icon.png">
+        <div class="b-form-hint">
+            Authorize via Instagram 
+            <br>
+            and start the upload.
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>PastBook Social App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='/new/favicon.ico' rel='icon' type='image/x-icon'/>
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <style type="text/css">
+        body { padding: 0;}
+        .b-form {
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+            margin: 0px auto 0;
+            width: 400px;
+            padding: 50px 50px 20px;
+            background-color: rgba(255,255,255, 0.9);
+            box-shadow: 0 1px 10px rgba(0,0,0, 0.25);
+            border-radius: 2px;
+            border: 1px solid rgba(255,255,255, 0.95);
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+            color: #FF3E8D;
+            text-shadow: none;
+            margin: 0 0 20px;
+            font-weight: 300;
+            font-size: 40px;
+        }
+        .b-form label {
+            display: block;
+            color: rgba(0,0,0, .25);
+        }
+        .b-form-input {
+            margin: 20px 0;
+        }
+        .m-error {
+            outline: 2px solid #FF3E8D;
+        }
+        .b-form-hint {
+            color: rgba(0,0,0, .25);           
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .b-form input {
+            display: block;
+            width: 100%;
+            font-size: 24px;
+            padding: 10px 0;
+            text-align: center;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            border-radius: 2px;
+            border: 1px solid rgba(0,0,0, .25);
+            line-height: 24px;
+            height: 24px;
+        }
+        .b-form-input img {
+            width: 100px;
+            height: 100px;
+            margin: 20px 0 5px;
+            cursor: pointer;
+        }
+        .br { height: 50px }
+        .b-form-range {
+            width: 50%;
+            margin-left: -2px;
+            float: left;
+            cursor: pointer;
+        }
+        .b-form-selector {
+            border: 1px solid #FF3E8D;
+            border-radius: 2px;           
+            background: #ffffff;
+        }
+        .b-form-range-one {
+            font-size: 24px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            line-height: 24px;
+            padding: 10px;
+        }
+        .b-form-range-selected {
+            background-color: #FF4E96;
+            color: #ffffff;
+        }
+        .b-form-value {
+            width: 50%;
+            float: left;
+        }
+        .b-form-value input { 
+            border: 0;
+            border-radius: 0;
+        }
+        .b-form-value-month input#id-month {
+            float:left;
+            width: 42%;
+            margin-right: 2px;
+        }
+        .b-form-value-month input#id-month-year {
+            float:left;
+            width: 58%;
+            margin-right: -2px;
+        }
+        .b-form-tri { 
+            float: right;
+        }
+        .b-form-triangle { 
+            color: #ffffff;
+            position: absolute;
+            margin-left: -22px;
+            margin-top: 16px;
+            font-size: 12px;
+        }
+        .b-form-range-values {
+            position: absolute;
+            display: none;
+            background: rgba(255,255,255, 0.95);
+            width: 200px;
+            box-shadow: 0 1px 10px rgba(0,0,0, 0.25);
+        }
+        .b-form-range-one:hover {
+            background-color: #FF4E96;
+            color: #ffffff;
+        }
+        .b-form-value-one { display: none }
+        .display { display: block }
+
+        .b-progress {
+            display: none;
+            opacity: 0;
+            position: absolute;
+            left: 50%;
+            margin-left: -450px;
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+            width: 850px;
+            padding: 20px 50px 20px;
+            background-color: rgba(255,255,255, 0.9);
+            box-shadow: 0 1px 10px rgba(0,0,0, 0.25);
+            border-radius: 2px;
+            border: 1px solid rgba(255,255,255, 0.95);
+            text-align: center;
+        }
+        .b-progress-init {
+            width: 350px;
+            margin: 50px auto;
+            color: #666666;
+            font-size: 18px;
+            font-weight: 300;
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+        }
+        .b-progress h1 {
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+        }
+        .b-progress-contents img {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            float: left;
+        }
+        .b-progress-contents {
+            display: none;
+            opacity: 0;
+            padding-bottom: 50px;
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -o-transition: all .5s ease;
+            transition: all .5s ease;
+        }
+        .b-progress-hint {
+            width: 600px;
+            margin: 0px auto 20px;
+            color: #666666;
+            font-size: 18px;
+            font-weight: 300;
+        }        
+        </style>
+
+        <div class="br"></div>
+        <div class="b-progress">
+            <h1>Upload is in progress</h1>
+            <div class="b-progress-init js-progress-init">
+                Please wait a couple of moments 
+                while PastBook connects to Instagram.
+                <br><br>
+                Your photos will appear here soon.
+            </div>
+            <div class="b-progress-contents clearfix">
+                <div class="b-progress-hint">
+                    Your photos are uploading.<br>
+                    You can wait on this page or close it—upload will continue anyway.<br>
+                    We will send you an email upon completion.
+                </div>
+                <img src="/app/web/img/progress.png">
+                <img src="/app/web/img/progress.png">
+                <img src="/app/web/img/progress.png">
+                <img src="/app/web/img/progress.png">
+                <img src="/app/web/img/progress.png">
+                <img src="/app/web/img/progress.png">
+                <img src="/app/web/img/progress.png">
+            </div>
+        </div>
+        <div class="b-form">
+            <h1>Instagram — PastBook</h1>
+            <div class="b-form-input">
+                <label for="id-email">Provide your email, please</label>
+                <input type="email" id="id-email">
+                <div class="b-form-hint">
+                    We will send only link to your photos. No spam, no ads.
+                </div>
+            </div>
+            <div class="b-form-input">
+                <label>Select time range to upload</label>
+                <div class="b-form-selector clearfix">
+                    <div class="b-form-range">
+                        <div class="b-form-tri"><div class="b-form-triangle">▼</div></div>
+                        <div id="id-range" class="b-form-range-one b-form-range-selected" data-value="year">By year</div>
+                        <div class="b-form-range-values">
+                            <div class="b-form-range-one" data-value="month">By month</div>
+                            <div class="b-form-range-one" data-value="year">By year</div>
+                            <div class="b-form-range-one" data-value="recent">Recent</div>
+                        </div>
+                    </div>
+                    <div class="b-form-value js-form-range-year">
+                        <div class="b-form-value-one b-form-value-year display">
+                            <input type="text" id="id-year" value="2014">
+                        </div>
+                        <div class="b-form-value-one b-form-value-month">
+                            <input type="text" id="id-month" value="01">
+                            <input type="text" id="id-month-year" value="2014">
+                        </div>
+                        <div class="b-form-value-one b-form-value-recent">
+                            <input type="text" id="id-recent" value="10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="b-form-input">
+                <img class="js-start" src="/app/web/img/app-icon.png">
+                <div class="b-form-hint">
+                    Authorize via Instagram 
+                    <br>
+                    and start the upload.
+                </div>
+            </div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>window.jQuery||document.write('<script src=js/vendor/jquery-1.11.1.min.js><\/script>')</script>
+        <script type="text/javascript">
+        function strip(s) { return s.replace(/^\s+/,'').replace(/\s+$/,'') }
+        function is_email(s) { return strip(s).match(/^.*@.*\..*$/) }
+        function validate() {
+            if (!is_email($('#id-email').val())) 
+                $('#id-email').focus().addClass('m-error').select();
+            else {
+                $('#id-email').removeClass('m-error');
+                return true;
+            }
+        }
+        $(function(){
+            $('#id-email').focus().blur(validate);
+            $('.b-form-range-selected').click(function(){
+                $('.b-form-range-values').toggleClass('display');
+                return false;
+            })
+            $('.b-form-range-values .b-form-range-one').click(function(){
+                $('.b-form-range-selected').html($(this).html())
+                $('.b-form-range-selected').data('value', $(this).data('value'))
+                $('.b-form-value-one').removeClass('display');
+                $('.b-form-value-'+$(this).data('value')).addClass('display')
+                $('.b-form-value-'+$(this).data('value')+' #id-'+$(this).data('value')).focus().select();
+            })
+            $('body').click(function(){ 
+                $('.b-form-range-values').removeClass('display');
+            })
+            $('.js-start').click(function(){
+                // if (!validate()) return;
+                $('.b-form').css({ opacity: 0 })
+                $('.b-progress').css({ opacity: 1 }).show()
+                setTimeout(ajax_start, 2000);
+                setTimeout(ajax_finish, 4000);
+                //ajax_start();
+            })
+            var progress_direction = false;
+            var progress_interval = setInterval(function(){
+                $('.b-progress h1').css({ opacity: progress_direction?1:0.25 });
+                progress_direction = !progress_direction;
+            }, 500);
+
+            function process( data ) {
+                // todo rebuild photos
+                // go for next ajax afterwards, or for ajax_finish
+            }
+            function ajax_start() {
+                var value = $('#id-year').data('value');
+                if ($('#id-range').data('value') == 'month')
+                    value = $('#id-month').data('value') + '/' + $('#id-month-year').data('value');
+                if ($('#id-range').data('value') == 'recent')
+                    value = $('#id-recent').data('value');
+                $.ajax({
+                    url: '/process',
+                    data: {
+                        email: $('#id-email').val(),
+                        range: $('#id-range').data('value'),
+                        value: value
+                    },
+                    success: function( data ){
+                        $('.b-progress-init').hide();
+                        $('.b-progress-contents').css({ display: 'block', opacity: 1 })
+                        process(data);
+                    }
+                })
+            }
+            function ajax_finish() {
+                $('.b-form').css({ opacity: 0 })
+                $('.b-progress').css({ opacity: 1 }).show()
+                $('.b-progress h1').html('Your photos are ready!')
+                $('.b-progress-hint').html('Thank you for this incredible experience.')
+                clearInterval(progress_interval);
+            }
+
+        })
+        </script>
+    </body>
+</html>
