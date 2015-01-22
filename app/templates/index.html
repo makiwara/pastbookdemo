@@ -29,7 +29,8 @@
     <h1>Instagram — PastBook</h1>
     <div class="b-form-input">
         <label for="id-email">Provide your email, please</label>
-        <input type="email" id="id-email">
+        <input type="email" id="id-email" required value="makiwara@humanemagica.com">
+        <!-- TODO remove my email -->
         <div class="b-form-hint">
             We will send only link to your photos. No spam, no ads.
         </div>
@@ -62,7 +63,7 @@
     </div>
     <div class="b-form-input">
         {% for provider, link in auth_links  %}
-            <img data-url="{{link}}" class="js-start" src="/img/oauth-{{provider}}.png">
+            <img data-provider="{{provider}}" class="js-start" src="/img/oauth-{{provider}}.png">
         {% endfor %}
         <div class="b-form-hint">
             Authorize via cloud 

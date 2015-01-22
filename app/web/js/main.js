@@ -25,12 +25,10 @@ $(function(){
         $('.b-form-range-values').removeClass('display');
     })
     $('.js-start').click(function(){
-        // if (!validate()) return;
+        if (!validate()) return;
         $('.b-form').css({ opacity: 0 })
         $('.b-progress').css({ opacity: 1 }).show()
-        setTimeout(ajax_start, 2000);
-        setTimeout(ajax_finish, 4000);
-        //ajax_start();
+        start($(this).data("provider"))
     })
     var progress_direction = false;
     var progress_interval = setInterval(function(){
@@ -38,30 +36,25 @@ $(function(){
         progress_direction = !progress_direction;
     }, 500);
 
-    function process( data ) {
-        // todo rebuild photos
-        // go for next ajax afterwards, or for ajax_finish
-    }
-    function ajax_start() {
-        var value = $('#id-year').data('value');
+
+    var userData = {};
+
+    function start(provider) {
+        // store range
+        var value = $('#id-year').val();
         if ($('#id-range').data('value') == 'month')
-            value = $('#id-month').data('value') + '/' + $('#id-month-year').data('value');
+            value = $('#id-month').val() + '/' + $('#id-month-year').val();
         if ($('#id-range').data('value') == 'recent')
-            value = $('#id-recent').data('value');
-        $.ajax({
-            url: '/process',
-            data: {
-                email: $('#id-email').val(),
-                range: $('#id-range').data('value'),
-                value: value
-            },
-            success: function( data ){
-                $('.b-progress-init').hide();
-                $('.b-progress-contents').css({ display: 'block', opacity: 1 })
-                process(data);
-            }
-        })
+            value = $('#id-recent').val();
+        // go for user authentification hash and provider auth
+        window.open('/auth?'+$.param({
+            provider: provider,
+            email: $('#id-email').val(),
+            range: $('#id-range').data('value')+':'+value
+        }));
+        // TODO open a nice popup
     }
+
     function ajax_finish() {
         $('.b-form').css({ opacity: 0 })
         $('.b-progress').css({ opacity: 1 }).show()
@@ -72,8 +65,22 @@ $(function(){
     }
 
 
+    
     window.onAuth = function(is_success) {
-        alert(is_success)
+        if (is_success) {
+            alert('time to launch updates')
+            // TODO: launch pictures
+            /*
+                $('.b-progress-init').hide();
+                $('.b-progress-contents').css({ display: 'block', opacity: 1 })
+            */
+
+        } else {
+            // we need to reset
+            $('.b-form').css({ opacity: 1 })
+            $('.b-progress').css({ opacity: 0 }).hide()
+        }
+       
     }
 
 })
