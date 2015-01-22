@@ -24,8 +24,21 @@ $app['twig'] = $app->extend('twig', function ($twig, $app) {
 });
 
 
-// Connected to Doctrine DBAL
+// Connect to Doctrine DBAL & bind to custom DBAL
 require_once('../config/db.php');
-$app->register(new Silex\Provider\DoctrineServiceProvider(), $app['dbal']);
+require_once('dbal.php');
+use \PastBookSocialApp\DBAL;
+$app['DBAL'] = new \PastBookSocialApp\DBAL($app);
+
+// Initialize oauth access secrets
+require_once('../config/oauth.php');
+require_once('oauth.php');
+use \PastBookSocialApp\AbstractOAuth;
+$auth = array();
+foreach ($app['oauth'] as $provider => $config) {
+	$auth[$provider] = \PastBookSocialApp\AbstractOAuth::Factory($provider, $config);
+}
+$app['OAuth'] = $auth;
+
 
 return $app;

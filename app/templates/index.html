@@ -61,9 +61,11 @@
         </div>
     </div>
     <div class="b-form-input">
-        <img class="js-start" src="/img/app-icon.png">
+        {% for provider, link in auth_links  %}
+            <img data-url="{{link}}" class="js-start" src="/img/oauth-{{provider}}.png">
+        {% endfor %}
         <div class="b-form-hint">
-            Authorize via Instagram 
+            Authorize via cloud 
             <br>
             and start the upload.
         </div>

@@ -9,13 +9,35 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 //Request::setTrustedProxies(array('127.0.0.1'));
 
 
-// Controller stubs
+
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html', array());
+    $auth_links = array();
+    foreach ($app["OAuth"] as $provider => $api) {
+        $auth_links[$provider] = $api->getLoginUrl();
+    }
+    return $app['twig']->render('index.html', array(
+        "auth_links" => $auth_links
+    ));
 })
 ->bind('homepage')
 ;
 
+
+$app->get('/auth/{provider}', function ($provider) use ($app) {
+    $code = $_GET['code'];
+    $success = "false";
+    // check whether the user has granted access
+    if (isset($code)) {
+        $token = $app["OAuth"][$provider]->getOAuthToken($code);
+        $success = "true";
+        // TODO store token in database
+    }
+    return $app['twig']->render('auth_done.html', array( "auth_success" => $success, "auth_hash" => $token ));
+    // todo auth_hash from user
+});
+
+
+// Controller stubs
 $app->get('/status', function () use ($app) {
     return '{done: true}';
 });
@@ -28,6 +50,18 @@ $app->get('/process', function () use ($app) {
     return '{done: true}';
 });
 
+$app->get('/init', function () use ($app) {
+    if ($app["DBAL"]->isInit())
+        return "ALREADY COMPLETE.";
+    else {
+        $app["DBAL"]->init();
+        return 'COMPLETE.';
+    }
+});
+$app->get('/drop', function () use ($app) {
+    $app["DBAL"]->drop();
+    return 'DROPPED.';
+});
 
 
 // Default error handlers from silex skeleton. Untouched.

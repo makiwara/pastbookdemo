@@ -71,4 +71,9 @@ $(function(){
         $('.b-progress h1').css({ opacity: 1 });
     }
 
+
+    window.onAuth = function(is_success) {
+        alert(is_success)
+    }
+
 })

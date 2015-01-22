@@ -2,3 +2,7 @@
 app/config/db.php
 
 config/db.php
+
+*.db
+
+config/oauth.php
