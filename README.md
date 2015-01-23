@@ -15,7 +15,7 @@ App is built on Silex.
 It requires Composer to set things up.
 It also requires cURL PHP extension to be installed.
 
-You will need to create config/db.php from db_sample.php: change USERNAME/PASSWORD to your mySQL credentials or use alternate configuration of Doctrine DBAL.
+You will need to create config/local_config.php from local_config_sample.php: fill-up fields with TODO.
 
 You will need to put 'curl <YOURWEBSITE>/upload' to crontab file to provide photo uploader with independent schedule.
 
