@@ -26,21 +26,29 @@ $app['twig'] = $app->extend('twig', function ($twig, $app) {
 });
 
 
+// TODO refactor to ServiceProvider style
+// Patch configuration with local values
+require __DIR__.'/../config/local_config.php';
+
 // Connect to Doctrine DBAL & bind to custom DBAL
-require_once('../config/db.php');
-require_once('dbal.php');
+require_once 'dbal.php';
 use \PastBookSocialApp\DBAL;
 $app['DBAL'] = new \PastBookSocialApp\DBAL($app);
 
 // Initialize oauth access secrets
-require_once('../config/oauth.php');
-require_once('oauth.php');
+require_once 'oauth.php';
 use \PastBookSocialApp\AbstractOAuth;
 $auth = array();
 foreach ($app['oauth'] as $provider => $config) {
 	$auth[$provider] = \PastBookSocialApp\AbstractOAuth::Factory($provider, $config);
 }
 $app['OAuth'] = $auth;
+
+// Connect to uploader
+require_once 'uploader.php';
+use \PastBookSocialApp\Uploader;
+$app["Uploader"] = new \PastBookSocialApp\Uploader($app);
+
 
 
 return $app;

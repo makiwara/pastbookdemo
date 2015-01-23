@@ -74,20 +74,54 @@ $app->get('/auth/{provider}', function ($provider) use ($app) {
 });
 
 
-
-
-
-// Controller stubs
-$app->get('/status', function () use ($app) {
-    return '{done: true}';
+/* ********
+ *
+ * Return current queue state for sessioned user in JSON.
+ *
+ */
+$app->get('/progress', function () use ($app) {
+    process_upload($app); // process a single upload each time progress is called.
+    $result = array("done" => true);
+    if ($app["session"]->get('user')) {
+        $photos = $app["DBAL"]->getPhotos($app["session"]->get('user'));
+        $result["photos"] = $photos;
+        foreach ($photos as $photo) {
+            if ($photo["state"] !== "done") { 
+                $result["done"]=false; break; 
+        }}
+    }
+    return json_encode($result);
 });
 
-$app->get('/queue', function () use ($app) {
-    return '{done: true}';
+
+
+/* ********
+ *
+ * Process single upload
+ *
+ */
+$app->get('/upload', function () use ($app) {
+    process_upload($app);
+    return "DONE.";
 });
+function process_upload($app) {
+    $photo = $app["DBAL"]->dequeue();
+    $updates = array(
+        "url" => $app["Uploader"]->upload($photo["url_original"], $photo["id"]),
+        "url_thumbnail" => $app["Uploader"]->upload($photo["url_thumbnail_original"], $photo["id"]."-"),
+        "state" => "done",
+    );
+    $app["DBAL"]->updatePhoto($photo, $updates);
+}
 
 
-$app->get('/init', function () use ($app) {
+
+/* ********
+ *
+ * Setup and demolish databases (set 'lock' in 'dbal' configuration to block).
+ *
+ */
+    $app->get('/init', function () use ($app) {
     if ($app["DBAL"]->isInit())
         return "ALREADY COMPLETE.";
     else {
@@ -96,7 +130,8 @@ $app->get('/init', function () use ($app) {
     }
 });
 $app->get('/drop', function () use ($app) {
-    $app["DBAL"]->drop();
+    if (!$app["dbal"]["lock"])
+        $app["DBAL"]->drop();
     return 'DROPPED.';
 });
 

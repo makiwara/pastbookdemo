@@ -53,10 +53,31 @@ class DBAL {
         }
     }
 
-    // TODO: dequeue photo
-    // TODO: update photo
-    // TODO: get photos
-    
+    // Get photos for the user 
+    public function getPhotos( $user ) {
+        $photos = $this->conn->fetchAll('SELECT * FROM photo WHERE user_id = ? ORDER BY state ASC', array($user["id"]));
+        $prepare = function($photo) {
+            return array(
+                "state" => $photo["state"],
+                "url"   => $photo["url"],
+                "thumb" => $photo["url_thumbnail"],
+            );
+        };
+        return array_map($prepare, $photos);
+    }
+
+    // Dequeue one photo for uploading
+    public function dequeue() {
+        $photo = $this->conn->fetchAssoc('SELECT * FROM photo WHERE state = ?', array('queue'));
+        $this->conn->update('photo', array("state" => "progress"), array('id'=>$photo["id"]));
+        return $photo;
+    }
+
+    // Update changes in photo
+    public function updatePhoto($photo, $updates) {
+        $this->conn->update('photo', $updates, array('id'=>$photo["id"]));
+    }
+
 
     // --------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------

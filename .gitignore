@@ -1,8 +1,6 @@
 
-app/config/db.php
-
-config/db.php
-
 *.db
 
-config/oauth.php
+app/config/local_config.php
+
+app/web/localdata*

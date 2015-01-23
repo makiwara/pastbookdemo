@@ -55,7 +55,7 @@ $(function(){
         // TODO open a nice popup
     }
 
-    function ajax_finish() {
+    function finish() {
         $('.b-form').css({ opacity: 0 })
         $('.b-progress').css({ opacity: 1 }).show()
         $('.b-progress h1').html('Your photos are ready!')
@@ -64,18 +64,33 @@ $(function(){
         $('.b-progress h1').css({ opacity: 1 });
     }
 
-
-    
-    window.onAuth = function(is_success) {
-        if (is_success) {
-            alert('time to launch updates')
-            // TODO: launch pictures
-            /*
+    function progress() {
+        $.ajax({
+            dataType: 'json',
+            url: '/progress',
+            success: function(data) {
                 $('.b-progress-init').hide();
                 $('.b-progress-contents').css({ display: 'block', opacity: 1 })
-            */
-
-        } else {
+                var contents = []
+                for (var i=0; i<data.photos.length; i++) {
+                    var src='/img/progress.png';
+                    if (data.photos[i].state == 'done')
+                        src = data.photos[i].thumb;
+                    contents.push('<img src="'+src+'">');
+                }
+                $('.js-progress-contents').html(contents.join(""))
+                // todo update pictures based on data
+                if (data.done) 
+                    finish();
+                else 
+                    setTimeout(progress, 500);
+            }
+        })
+    }
+   
+    window.onAuth = function(is_success) {
+        if (is_success) progress()
+        else {
             // we need to reset
             $('.b-form').css({ opacity: 1 })
             $('.b-progress').css({ opacity: 0 }).hide()
