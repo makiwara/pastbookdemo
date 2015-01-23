@@ -9,6 +9,7 @@ $app['dbal'] = array(
         'driver' => 'pdo_mysql',
     ),
     'lock' => false,
+    'salt' => "SOME RANDOM STRING",
 );
 
 $app['oauth'] = array(

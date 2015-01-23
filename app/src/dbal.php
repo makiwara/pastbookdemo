@@ -22,9 +22,16 @@ class DBAL {
         $is_already = $this->conn->fetchColumn($sql, array($email), 0);
         if ($is_already == 0) {
             // create new user
-            $this->conn->insert('user', array('email' => $email));
+            $hash = md5($this->config["salt"].$email);
+            $this->conn->insert('user', array('email' => $email, 'hash' => $hash));
         }
         $user = $this->conn->fetchAssoc('SELECT * FROM user WHERE email = ?', array($email));
+        return $user;
+    }
+
+    // Get user by hash if only it exists
+    public function getUserByHash( $hash ) {
+        $user = $this->conn->fetchAssoc('SELECT * FROM user WHERE hash = ?', array($hash));
         return $user;
     }
 
@@ -116,8 +123,10 @@ class DBAL {
         $userTable = $schema->createTable("user");
         $userTable->addColumn("id", "integer", array("unsigned" => true));
         $userTable->addColumn("email", "string", array("length" => 250));
+        $userTable->addColumn("hash", "string", array("length" => 250));
         $userTable->setPrimaryKey(array("id"));
         $userTable->addUniqueIndex(array("email"));
+        $userTable->addUniqueIndex(array("hash"));
         // auth
         $authTable = $schema->createTable("auth");
         $authTable->addColumn("id", "integer", array("unsigned" => true));

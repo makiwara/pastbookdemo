@@ -115,6 +115,22 @@ function process_upload($app) {
 }
 
 
+/* ********
+ *
+ * Display user page
+ *
+ */
+$app->get('/photos/{hash}', function ($hash) use ($app) {
+    $user = $app["DBAL"]->getUserByHash( $hash );
+    if (!$user) return $app->redirect("/");
+    
+    $photos = $app["DBAL"]->getPhotos( $user );
+    return $app['twig']->render('photos.html', array(
+        "user" => $user,
+        "photos" => $photos,
+    ));
+});
+
 
 /* ********
  *
