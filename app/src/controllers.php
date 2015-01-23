@@ -46,12 +46,17 @@ $app->get('/auth', function () use ($app) {
 $app->get('/auth/{provider}', function ($provider) use ($app) {
     $code = $_GET['code'];
     $success = "false";
-    // check whether the user has granted access
+
+    // Check whether the user has granted access
     if (isset($code)) {
-        $token = $app["OAuth"][$provider]->getOAuthToken($code);
         $success = "true";
+
+        // Store token for future use.
+        $token = $app["OAuth"][$provider]->getOAuthToken($code);
         $app["DBAL"]->updateUserToken($app["session"]->get('user'), $provider, $token);
-        // Enqueue photos
+
+        // Gather metadata and enqueue photos.
+        // Upload process is handled separately.
         $app["OAuth"][$provider]->setOAuthToken($token);
         $range = $app["session"]->get('range');
         switch ($range[0]) {
@@ -62,7 +67,6 @@ $app->get('/auth/{provider}', function ($provider) use ($app) {
                 $date = explode("/", $range[1]);
                 $photos = $app["OAuth"][$provider]->getMedia(NULL, $date[1], $date[0]);
                 break;
-            default:
             case 'recent': 
                 $photos = $app["OAuth"][$provider]->getMedia($range[1]);
                 break;
@@ -80,7 +84,11 @@ $app->get('/auth/{provider}', function ($provider) use ($app) {
  *
  */
 $app->get('/progress', function () use ($app) {
-    process_upload($app); // process a single upload each time progress is called.
+
+    // We will process a single upload each time progress is called. 
+    // This allows for simple testing of prototype without crontab.
+    process_upload($app); 
+
     $result = array("done" => true);
     if ($app["session"]->get('user')) {
         $photos = $app["DBAL"]->getPhotos($app["session"]->get('user'));
@@ -97,24 +105,27 @@ $app->get('/progress', function () use ($app) {
 
 /* ********
  *
- * Process single upload
+ * Process upload
  *
  */
 $app->get('/upload', function () use ($app) {
-    for ($i=0; $i < 10; $i++) { 
+    for ($i=0; $i < 10; $i++)
         process_upload($app);
-    }
     return "DONE.";
 });
 function process_upload($app) {
     $photo = $app["DBAL"]->dequeue();
     if ($photo) {
+
+        // upload original picture and thumbnail
         $updates = array(
             "url" => $app["Uploader"]->upload($photo["url_original"], $photo["id"]),
             "url_thumbnail" => $app["Uploader"]->upload($photo["url_thumbnail_original"], $photo["id"]."-"),
             "state" => "done",
         );
         $app["DBAL"]->updatePhoto($photo, $updates);
+
+        // if this photo was the last one in user’s queue — send her an email.
         if ($app["DBAL"]->isQueueComplete($photo)) {
             $user = $app["DBAL"]->getUserById($photo["user_id"]);
             $app['mailer']->send(\Swift_Message::newInstance()
@@ -138,7 +149,6 @@ function process_upload($app) {
 $app->get('/photos/{hash}', function ($hash) use ($app) {
     $user = $app["DBAL"]->getUserByHash( $hash );
     if (!$user) return $app->redirect("/");
-    
     $photos = $app["DBAL"]->getPhotos( $user );
     return $app['twig']->render('photos.html', array(
         "user" => $user,
@@ -152,8 +162,8 @@ $app->get('/photos/{hash}', function ($hash) use ($app) {
  * Setup and demolish databases (set 'lock' in 'dbal' configuration to block).
  *
  */
-    $app->get('/init', function () use ($app) {
-    if ($app["DBAL"]->isInit())
+$app->get('/init', function () use ($app) {
+    if ($app["DBAL"]->isInit()) 
         return "ALREADY COMPLETE.";
     else {
         $app["DBAL"]->init();
@@ -166,8 +176,11 @@ $app->get('/drop', function () use ($app) {
     return 'DROPPED.';
 });
 
-
-// Default error handlers from silex skeleton. Untouched.
+/* ********
+ *
+ * Default error handlers from silex skeleton. Untouched.
+ *
+ */
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
         return;

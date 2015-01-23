@@ -41,7 +41,6 @@ class DBAL {
         return $user;
     }
 
-
     // Update user OAuth token
     public function updateUserToken( $user, $provider, $token ) {
         $this->conn->delete('auth', array( 
@@ -118,7 +117,7 @@ class DBAL {
     public function init() {
         $schema = $this->generateSchema();
         foreach ($schema->toSql($this->platform) as $q) {
-            print $q.'<br>';
+            print $q.'<br>'; // debug output
             $this->conn->query($q);
         }
     }
@@ -126,7 +125,7 @@ class DBAL {
         $schema = $this->generateSchema();
         foreach ($schema->toDropSql($this->platform) as $q) {
             if (preg_match('/^DROP./', $q) > 0) { // sqlite does not work well with ALTER TABLE, hence.
-                print $q.'<br>';
+                print $q.'<br>'; // debug output
                 $this->conn->query($q);
             }
         }

@@ -3,32 +3,32 @@
 $app['dbal'] = array(
     'db.options' => array(
         'dbname' => 'pastbook',
-        'user' => 'USERNAME',
-        'password' => 'PASSWORD',
+        'user' => 'TODO USERNAME',
+        'password' => 'TODO PASSWORD',
         'host' => 'localhost',
         'driver' => 'pdo_mysql',
     ),
     'lock' => false,
-    'salt' => "SOME RANDOM STRING",
+    'salt' => "TODO SOME RANDOM STRING",
 );
 
 $app['oauth'] = array(
     'instagram' => array(
-        'key'    => 'KEY',
-        'secret' => 'SECRET',
+        'key'    => 'TODO KEY',
+        'secret' => 'TODO SECRET',
     ),
 );
 
 $app['uploader'] = array(
-	'local_path' => 'LOCAL',
-	'url_prefix' => 'URL',
+	'local_path' => 'TODO LOCAL/',
+	'url_prefix' => 'TODO URL/',
 );
 
 $app['swiftmailer.options'] = array(
     'host'       => 'smtp.gmail.com',
     'port'       => 465,
-    'username'   => 'YOUR EMAIL',
-    'password'   => 'YOUR EMAIL PASSWORD',
+    'username'   => 'TODO YOUR EMAIL',
+    'password'   => 'TODO YOUR EMAIL PASSWORD',
     'encryption' => 'ssl',
     'auth_mode'  => 'login',
 );

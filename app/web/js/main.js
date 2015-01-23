@@ -9,7 +9,11 @@ function validate() {
     }
 }
 $(function(){
+
+    // UI for email field
     $('#id-email').focus().blur(validate);
+
+    // <select>-style UI for range selection
     $('.b-form-range-selected').click(function(){
         $('.b-form-range-values').toggleClass('display');
         return false;
@@ -24,21 +28,23 @@ $(function(){
     $('body').click(function(){ 
         $('.b-form-range-values').removeClass('display');
     })
+
+    // Start processing!
     $('.js-start').click(function(){
         if (!validate()) return;
         $('.b-form').css({ opacity: 0 })
         $('.b-progress').css({ opacity: 1 }).show()
         start($(this).data("provider"))
     })
+
+    // Animations for in-process
     var progress_direction = false;
     var progress_interval = setInterval(function(){
         $('.b-progress h1').css({ opacity: progress_direction?1:0.25 });
         progress_direction = !progress_direction;
     }, 500);
 
-
-    var userData = {};
-
+    // This function is called when user clicks on OAuth provider icon.
     function start(provider) {
         // store range
         var value = $('#id-year').val();
@@ -55,6 +61,7 @@ $(function(){
         // TODO open a nice popup
     }
 
+    // This function is called when all photos are uploaded interactively.
     function finish() {
         $('.b-form').css({ opacity: 0 })
         $('.b-progress').css({ opacity: 1 }).show()
@@ -64,6 +71,7 @@ $(function(){
         $('.b-progress h1').css({ opacity: 1 });
     }
 
+    // This function is called iteratively to display upload performance.
     function progress() {
         $.ajax({
             dataType: 'json',
@@ -88,6 +96,7 @@ $(function(){
         })
     }
    
+    // This function is invoked from window.open-ed pop-up upon OAuth completion.
     window.onAuth = function(is_success) {
         if (is_success) progress()
         else {
@@ -95,7 +104,6 @@ $(function(){
             $('.b-form').css({ opacity: 1 })
             $('.b-progress').css({ opacity: 0 }).hide()
         }
-       
     }
 
 })

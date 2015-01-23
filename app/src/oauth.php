@@ -5,6 +5,8 @@ namespace PastBookSocialApp;
 use \MetzWeb\Instagram\Instagram;
 
 /**
+*
+* Abstract class for OAuth / Cloud storage provider
 *  
 */
 abstract class AbstractOAuth {
@@ -27,6 +29,12 @@ abstract class AbstractOAuth {
     public abstract function getMedia($limit=NULL, $year=NULL, $month=NULL);
 }
 
+
+/**
+*
+* OAuth / Cloud storage provider — INSTAGRAM
+*  
+*/
 class InstagramOAuth extends AbstractOAuth {
 
     public function __construct($provider, $app) {
