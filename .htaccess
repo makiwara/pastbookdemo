@@ -1,7 +1,10 @@
 RewriteEngine On 
 DirectoryIndex index.php
 RewriteBase /
+RewriteRule ^((js|img|css)/.*)$ app/web/$1 [QSA,L]
 RewriteRule ^$ app/web/index.php [QSA,L]
 RewriteCond %{REQUEST_FILENAME} !-f 
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteRule ^(.*)$ app/web/index.php [QSA,L]
+
+
