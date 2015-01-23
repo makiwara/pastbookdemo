@@ -135,7 +135,7 @@ class DBAL {
         $schema = new \Doctrine\DBAL\Schema\Schema();
         // user
         $userTable = $schema->createTable("user");
-        $userTable->addColumn("id", "integer", array("unsigned" => true, autoincrement="true"));
+        $userTable->addColumn("id", "integer", array("unsigned" => true, autoincrement => true));
         $userTable->addColumn("email", "string", array("length" => 250));
         $userTable->addColumn("hash", "string", array("length" => 250));
         $userTable->setPrimaryKey(array("id"));
@@ -143,7 +143,7 @@ class DBAL {
         $userTable->addUniqueIndex(array("hash"));
         // auth
         $authTable = $schema->createTable("auth");
-        $authTable->addColumn("id", "integer", array("unsigned" => true, autoincrement="true"));
+        $authTable->addColumn("id", "integer", array("unsigned" => true, autoincrement => true));
         $authTable->addColumn("user_id", "integer", array("unsigned" => true));
         $authTable->addColumn("provider",  "string", array("length" => 250));
         $authTable->addColumn("token", "string", array("length" => 250));
@@ -152,7 +152,7 @@ class DBAL {
             array("onUpdate" => "CASCADE"));
         // photo
         $photoTable = $schema->createTable("photo");
-        $photoTable->addColumn("id", "integer", array("unsigned" => true, autoincrement="true"));
+        $photoTable->addColumn("id", "integer", array("unsigned" => true, autoincrement => true));
         $photoTable->addColumn("user_id", "integer", array("unsigned" => true));
         $photoTable->addColumn("url", "string", array("length" => 250, "default" => ""));
         $photoTable->addColumn("url_thumbnail", "string", array("length" => 250, "default" => ""));
