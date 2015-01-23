@@ -39,6 +39,7 @@ class InstagramOAuth extends AbstractOAuth {
     }
 
     private function _patchApiCallback() {
+        // TODO figure out and make this better.
         $this->instagram->setApiCallback(
             $this->app["url_generator"]->generate('auth', 
                 array("provider"=>$this->provider), true)
