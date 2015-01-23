@@ -101,7 +101,9 @@ $app->get('/progress', function () use ($app) {
  *
  */
 $app->get('/upload', function () use ($app) {
-    process_upload($app);
+    for ($i=0; $i < 10; $i++) { 
+        process_upload($app);
+    }
     return "DONE.";
 });
 function process_upload($app) {
