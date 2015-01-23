@@ -9,9 +9,10 @@ use \MetzWeb\Instagram\Instagram;
 */
 abstract class AbstractOAuth {
     
-    public function __construct($provider, $config) {
+    public function __construct($provider, $app) {
         $this->provider = $provider;
-        $this->config = $config;
+        $this->app = $app;
+        $this->config = $app['oauth'][$provider];
     }
     public static function Factory($provider, $config) { 
         $providers = array(
@@ -28,13 +29,12 @@ abstract class AbstractOAuth {
 
 class InstagramOAuth extends AbstractOAuth {
 
-    public function __construct($provider, $config) {
-        parent::__construct($provider, $config);
+    public function __construct($provider, $app) {
+        parent::__construct($provider, $app);
         $this->instagram = new Instagram(array(
             'apiKey'      => $this->config['key'],
             'apiSecret'   => $this->config['secret'],
-            'apiCallback' => "http://localhost:8888/auth/".$this->provider,
-            // TODO: fix apiCallback URL
+            'apiCallback' => $this->app->generate('auth', array("provider"=>$this->provider), true),
         ));
     }
 

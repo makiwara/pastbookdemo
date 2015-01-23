@@ -23,8 +23,7 @@ $app->get('/', function () use ($app) {
         "auth_links" => $auth_links
     ));
 })
-->bind('homepage')
-;
+->bind('homepage');
 
 
 /* ********
@@ -71,7 +70,8 @@ $app->get('/auth/{provider}', function ($provider) use ($app) {
         $app["DBAL"]->enqueue($app["session"]->get('user'), $photos);
     }
     return $app['twig']->render('auth_done.html', array( "auth_success" => $success ));
-});
+})
+->bind('auth');
 
 
 /* ********

@@ -42,7 +42,7 @@ require_once 'oauth.php';
 use \PastBookSocialApp\AbstractOAuth;
 $auth = array();
 foreach ($app['oauth'] as $provider => $config) {
-	$auth[$provider] = \PastBookSocialApp\AbstractOAuth::Factory($provider, $config);
+	$auth[$provider] = \PastBookSocialApp\AbstractOAuth::Factory($provider, $app);
 }
 $app['OAuth'] = $auth;
 
