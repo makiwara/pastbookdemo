@@ -34,15 +34,23 @@ class InstagramOAuth extends AbstractOAuth {
         $this->instagram = new Instagram(array(
             'apiKey'      => $this->config['key'],
             'apiSecret'   => $this->config['secret'],
-            'apiCallback' => $this->app->generate('auth', array("provider"=>$this->provider), true),
+            'apiCallback' => false,
         ));
     }
 
+    private function _patchApiCallback() {
+        $this->instagram->setApiCallback(
+            $this->app["url_generator"]->generate('auth', 
+                array("provider"=>$this->provider), true)
+        );        
+    }
 
     public function getLoginUrl() {
+        $this->_patchApiCallback();
         return $this->instagram->getLoginUrl();
     }
     public function getOAuthToken($code) {
+        $this->_patchApiCallback();
         $token = $this->instagram->getOAuthToken($code);
         return $token->access_token;
     }
