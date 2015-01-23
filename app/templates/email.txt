@@ -1,0 +1,8 @@
+Hello,
+
+We have gently gathered your photos, they are available here:
+{{url}}
+
+-- 
+Yours,
+PastBook Social App Demo.

@@ -106,12 +106,25 @@ $app->get('/upload', function () use ($app) {
 });
 function process_upload($app) {
     $photo = $app["DBAL"]->dequeue();
-    $updates = array(
-        "url" => $app["Uploader"]->upload($photo["url_original"], $photo["id"]),
-        "url_thumbnail" => $app["Uploader"]->upload($photo["url_thumbnail_original"], $photo["id"]."-"),
-        "state" => "done",
-    );
-    $app["DBAL"]->updatePhoto($photo, $updates);
+    if ($photo) {
+        $updates = array(
+            "url" => $app["Uploader"]->upload($photo["url_original"], $photo["id"]),
+            "url_thumbnail" => $app["Uploader"]->upload($photo["url_thumbnail_original"], $photo["id"]."-"),
+            "state" => "done",
+        );
+        $app["DBAL"]->updatePhoto($photo, $updates);
+        if ($app["DBAL"]->isQueueComplete($photo)) {
+            $user = $app["DBAL"]->getUserById($photo["user_id"]);
+            $app['mailer']->send(\Swift_Message::newInstance()
+                ->setSubject("Your photos are ready!")
+                ->setFrom(array($app['swiftmailer.options']['username']))
+                ->setTo(array($user["email"]))   
+                ->setBody($app['twig']->render('email.txt', array(
+                        "url" => $app["url_generator"]->generate('photos', array("hash" => $user["hash"]), true)
+                    )
+            )));
+        }       
+    }
 }
 
 
@@ -129,7 +142,7 @@ $app->get('/photos/{hash}', function ($hash) use ($app) {
         "user" => $user,
         "photos" => $photos,
     ));
-});
+})->bind('photos');
 
 
 /* ********

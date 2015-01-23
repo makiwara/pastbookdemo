@@ -35,6 +35,13 @@ class DBAL {
         return $user;
     }
 
+    // Get user by id if only it exists
+    public function getUserById( $id ) {
+        $user = $this->conn->fetchAssoc('SELECT * FROM user WHERE id = ?', array($id));
+        return $user;
+    }
+
+
     // Update user OAuth token
     public function updateUserToken( $user, $provider, $token ) {
         $this->conn->delete('auth', array( 
@@ -83,6 +90,13 @@ class DBAL {
     // Update changes in photo
     public function updatePhoto($photo, $updates) {
         $this->conn->update('photo', $updates, array('id'=>$photo["id"]));
+    }
+
+    // Check if this photo completes queue for some user
+    public function isQueueComplete($photo) {
+        $sql = 'SELECT COUNT(*) AS howmany FROM photo WHERE state <> ? and user_id = ? ORDER BY state ASC';
+        $howmany = $this->conn->fetchColumn($sql, array('done', $photo["user_id"]), 0);
+        return $howmany == 0;
     }
 
 

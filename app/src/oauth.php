@@ -70,7 +70,7 @@ class InstagramOAuth extends AbstractOAuth {
                         $media->images->standard_resolution->url
                     ));
                 }
-                if ($limit and len($out) == $limit) break 2;
+                if ($limit and count($out) == $limit) break 2;
             }
             $result = $this->instagram->pagination($result);
         }

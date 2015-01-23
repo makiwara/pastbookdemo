@@ -24,3 +24,11 @@ $app['uploader'] = array(
 	'url_prefix' => 'URL',
 );
 
+$app['swiftmailer.options'] = array(
+    'host'       => 'smtp.gmail.com',
+    'port'       => 465,
+    'username'   => 'YOUR EMAIL',
+    'password'   => 'YOUR EMAIL PASSWORD',
+    'encryption' => 'ssl',
+    'auth_mode'  => 'login',
+);
